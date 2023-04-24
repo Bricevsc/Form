@@ -1,6 +1,6 @@
 import { Schema, model } from "mongoose";
 
-const formSchema = new Schema({
+const FormSchema = new Schema({
   lastname: {
     type: String,
     required: false,
@@ -41,5 +41,7 @@ const formSchema = new Schema({
   },
 });
 
-export const FormModel = model ("form", formSchema)
+const collectionName = 'contact';
+
+export const FormModel = model ("Form", FormSchema, collectionName)
 
