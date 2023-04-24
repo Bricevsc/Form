@@ -1,0 +1,26 @@
+{
+  "name": "form",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bricevsc/Form.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bricevsc/Form/issues"
+  },
+  "homepage": "https://github.com/Bricevsc/Form#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.0.5",
+    "nodemon": "^2.0.22",
+    "react": "^18.2.0"
+  },
+  "type": "module"
+}
