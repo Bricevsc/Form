@@ -1,6 +1,6 @@
-import { FormModel } from '../models/form.model.js'
+import { FormModel } from "../models/form.model.js";
 
-export default async function sendDataForm (req, res) {
+export default async function sendDataForm(req, res) {
   const { lastname, firstname, email, phone, message } = req.body;
 
   try {
@@ -13,6 +13,6 @@ export default async function sendDataForm (req, res) {
     });
     res.status(201).json({ form: form._id }); // 201 Created + revoi id
   } catch (err) {
-    res.status(200).send({ err });
+    res.status(400).send({ err });
   }
-};
+}

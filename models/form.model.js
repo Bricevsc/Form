@@ -1,4 +1,5 @@
 import { Schema, model } from "mongoose";
+import isEmail from "validator/lib/isemail";
 
 const FormSchema = new Schema({
   lastname: {
@@ -28,6 +29,7 @@ const FormSchema = new Schema({
   email: {
     type: String,
     required: true,
+    validate: [isEmail],
     lowercase: true,
     unique: true,
     trim: true,
