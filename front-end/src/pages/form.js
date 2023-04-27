@@ -35,7 +35,7 @@ const FormContact = () => {
   };
 
   return (
-    <Container className="fullsize" textAlign={"center"} style={{ width: "50%", padding: "5em" }}>
+    <Container textAlign={"center"} style={{ width: "50%", padding: "5em" }}>
       <Form.Control >
         <Content renderAs="h1" textSize={3} >vos informations</Content>
         <Form.Field>
@@ -106,7 +106,7 @@ const FormContact = () => {
             />
           </Form.Control>
         </Form.Field>
-        <Button onClick={submit}>
+        <Button className="sendbutton"  onClick={submit}>
           📨
         </Button>
       </Form.Control>

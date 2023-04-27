@@ -6,16 +6,24 @@ html {
   overflow-y: hidden;
   scroll-behavior: smooth;
 }
+div{
+ padding-bottom: 0.5em;
+}
+h1{
+    color: aliceblue;
+    font-size: large;
+  }
 button{
     appearance: none;
     width: 3rem;
     height: 2rem;
     border: 1px solid;
+    text-align: center;
 }
-h1{
-  color: aliceblue;
-  font-size: large;
-}
-div{
- padding-bottom: 0.5em;
+.sendbutton{
+    appearance: none;
+    width: 4rem;
+    height: 5rem;
+    border: 1px solid;
+    text-align: center;
 }
