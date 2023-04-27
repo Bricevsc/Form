@@ -10,7 +10,7 @@ const FormContact = () => {
   const [message, setMessage] = useState("");
   const [password, setPassword] = useState("");
 
-  const sendForm = (lastname, firstname, email, phone, message, password) => {
+  const sendForm = () => {
     axios({
       method: "post",
       url: `http://localhost:8000/form`,
