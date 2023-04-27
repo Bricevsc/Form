@@ -5,7 +5,7 @@ import Form from '../../pages/form';
 const index = () => {
   return (
     <div>
-        <Route path="/" element={<Form />} />
+        <Route path="/form" element={<Form />} />
     </div>
   );
 };

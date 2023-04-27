@@ -1,87 +1,116 @@
 import React, { useState } from "react";
-import { Form, Button } from "react-bulma-components";
+import { Form, Button, Content, Container } from "react-bulma-components";
+import axios from "axios";
 
 const FormContact = () => {
+  const [lastname, setLastname] = useState("");
+  const [firstname, setFirstname] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [message, setMessage] = useState("");
+  const [password, setPassword] = useState("");
+
+  const sendForm = (lastname, firstname, email, phone, message, password) => {
+    axios({
+      method: "post",
+      url: `http://localhost:8000/form`,
+      withCredentials: true,
+      data: {
+        lastname,
+        firstname,
+        email,
+        phone,
+        message,
+        password,
+      },
+    });
+  };
+
+  const submit = () => {
+    if (!email || !message) {
+      alert("veuilez renseigné email et message");
+    } else {
+      sendForm();
+    }
+  };
+
   return (
-    <Form.Control>
-      <Form.Field>
-        <Form.Label>Nom</Form.Label>
-        <Form.Control>
-          <Form.Input
-            type="text"
-            placeholder="Nom"
-            name="lastname"
-            value={lastname}
-            onChange={(e) => ({ lastname: e.target.value })}
-          />
-        </Form.Control>
-      </Form.Field>
-      <Form.Field>
-        <Form.Label>Prénom</Form.Label>
-        <Form.Control>
-          <Form.Input
-            type="text"
-            placeholder="Prénom"
-            name="firstname"
-            value={firstname}
-            onChange={(e) => ({ firstname: e.target.value })}
-          />
-        </Form.Control>
-      </Form.Field>
-      <Form.Field>
-        <Form.Label>email</Form.Label>
-        <Form.Control>
-          <Form.Input
-            type="email"
-            placeholder="Adresse e-mail*"
-            name="email"
-            value={email}
-            onChange={(e) => ({ email: e.target.value })}
-          />
-        </Form.Control>
-      </Form.Field>
-      <Form.Field>
-        <Form.Label>tel</Form.Label>
-        <Form.Control>
-          <Form.Input
-            type="tel"
-            pattern="[0-9]"
-            placeholder="Téléphone"
-            name="phone"
-            value={phone}
-            onChange={(e) => ({ phone: e.target.value })}
-          />
-        </Form.Control>
-      </Form.Field>
-      <Form.Field>
-        <Form.Label>Message</Form.Label>
-        <Form.Control>
-          <Form.Textarea
-            placeholder="Message*"
-            className=" has-fixed-size"
-            name="message"
-            value={message}
-            onChange={(e) => ({ message: e.target.value })}
-          />
-        </Form.Control>
-      </Form.Field>
-      <Form.Field>
-        <Form.Label>Username</Form.Label>
-        <Form.Control>
-          <Form.Input
-            type="password"
-            placeholder="mot de passe"
-            className=" has-fixed-size"
-            name="password"
-            value={password}
-            onChange={(e) => ({ password: e.target.value })}
-          />
-        </Form.Control>
-      </Form.Field>
-      <Button color="primary" disabled={!isFormValid} onClick={submit}>
-        📨
-      </Button>
-    </Form.Control>
+    <Container style={{ width: "50%", padding: "5em" }}>
+      <Form.Control textAlign={"center"}>
+        <Content renderAs="h1">vos informations</Content>
+        <Form.Field>
+          <Form.Control>
+            <Form.Input
+              type="text"
+              placeholder="Nom"
+              name="lastname"
+              value={lastname}
+              onChange={(e) => setLastname(e.target.value)}
+            />
+          </Form.Control>
+        </Form.Field>
+        <Form.Field>
+          <Form.Control>
+            <Form.Input
+              type="text"
+              placeholder="Prénom"
+              name="firstname"
+              value={firstname}
+              onChange={(e) => setFirstname(e.target.value)}
+            />
+          </Form.Control>
+        </Form.Field>
+        <Form.Field>
+          <Form.Control>
+            <Form.Input
+              type="email"
+              placeholder="Adresse e-mail*"
+              name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </Form.Control>
+        </Form.Field>
+        <Form.Field>
+          <Form.Control>
+            <Form.Input
+              type="tel"
+              pattern="[0-9]"
+              placeholder="Téléphone"
+              name="phone"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+            />
+          </Form.Control>
+        </Form.Field>
+        <Form.Field>
+          <Form.Control>
+            <Form.Textarea
+              placeholder="Message*"
+              className=" has-fixed-size"
+              name="message"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+            />
+          </Form.Control>
+        </Form.Field>
+        <Form.Field>
+          <Form.Control>
+            <Form.Input
+              type="password"
+              placeholder="mot de passe"
+              className=" has-fixed-size"
+              name="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </Form.Control>
+        </Form.Field>
+        <Button onClick={submit}>
+          📨
+        </Button>
+      </Form.Control>
+    </Container>
   );
 };
 export default FormContact;
