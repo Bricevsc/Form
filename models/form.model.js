@@ -1,5 +1,6 @@
 import { Schema, model } from "mongoose";
-import isEmail from "validator/lib/isemail";
+import isEmail from "validator/lib/isemail.js";
+import bcrypt from 'bcrypt';
 
 const FormSchema = new Schema({
   lastname: {
@@ -41,6 +42,18 @@ const FormSchema = new Schema({
     unique: true,
     trim: true,
   },
+  password: {
+    type: String,
+    required: false,
+    max: 1024,
+    minlength: 4,
+  },
+});
+
+FormSchema.pre("save", async function(next) {
+  const salt = await bcrypt.genSalt();
+  this.password = await bcrypt.hash(this.password, salt);
+  next();
 });
 
 const collectionName = 'contact';
