@@ -35,9 +35,9 @@ const FormContact = () => {
   };
 
   return (
-    <Container style={{ width: "50%", padding: "5em" }}>
-      <Form.Control textAlign={"center"}>
-        <Content renderAs="h1">vos informations</Content>
+    <Container className="fullsize" textAlign={"center"} style={{ width: "50%", padding: "5em" }}>
+      <Form.Control >
+        <Content renderAs="h1" textSize={3} >vos informations</Content>
         <Form.Field>
           <Form.Control>
             <Form.Input

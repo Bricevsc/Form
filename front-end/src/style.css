@@ -1,0 +1,21 @@
+body {
+  background-color: darkgrey;
+  height: 100vh;
+}
+html {
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+}
+button{
+    appearance: none;
+    width: 3rem;
+    height: 2rem;
+    border: 1px solid;
+}
+h1{
+  color: aliceblue;
+  font-size: large;
+}
+div{
+ padding-bottom: 0.5em;
+}
