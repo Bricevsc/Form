@@ -6,7 +6,7 @@ const FormSchema = new Schema({
   lastname: {
     type: String,
     required: false,
-    minLength: 3,
+    // minLength: 3,
     maxLength: 55,
     unique: false,
     trim: true,
@@ -14,7 +14,7 @@ const FormSchema = new Schema({
   firstname: {
     type: String,
     required: false,
-    minLength: 3,
+    // minLength: 3,
     maxLength: 55,
     unique: false,
     trim: true,
@@ -22,7 +22,7 @@ const FormSchema = new Schema({
   phone:{
     type: String,
     required: false,
-    minLength: 10,
+    // minLength: 10,
     maxLength: 10,
     unique: false,
     trim: true,
@@ -46,7 +46,7 @@ const FormSchema = new Schema({
     type: String,
     required: false,
     max: 1024,
-    minlength: 4,
+    // minlength: 4,
   },
 });
 
