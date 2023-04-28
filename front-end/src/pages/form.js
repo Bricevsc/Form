@@ -28,11 +28,26 @@ const FormContact = () => {
 
   const submit = () => {
     if (!email || !message) {
-      alert("veuilez renseigné email et message");
+      alert("veuillez renseigner email et message");
     } else {
-      sendForm();
+      try {
+        sendForm();
+        clearForm();
+        alert('le formulaire est envoyé')
+      } catch (error) {
+        alert(`le formulaire ne s'est pas envoyé.` + error)
+      }
     }
   };
+
+  const clearForm = () => {
+    setLastname('')
+    setFirstname('')
+    setEmail('')
+    setPhone('')
+    setMessage('')
+    setPassword('')
+  }
 
   return (
     <Container textAlign={"center"} style={{ width: "50%", padding: "5em" }}>
